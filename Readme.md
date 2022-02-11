@@ -28,10 +28,10 @@ git config --global user.email "email@exemplo.com"
 ```bash
 git config --global core.editor code
 ```
-* Note que o editor utilizado foi o VSCode, mas poderia ter sido qualquier outro como o vim, sublime text, etc.
+* Note que o editor utilizado foi o VSCode, mas poderia ter sido qualquer outro como o vim, sublime text, etc.
 
 ## Para ver as configurações feitas
-Você pode usar uma chave como "user.name" ou ore.editor" ou ver a lista com todas as configurações feitas:
+Você pode usar uma chave como "user.name" ou "core.editor" ou ainda ver a lista com todas as configurações feitas:
 ### Usando uma chave
 ```bash
 git config user.name
@@ -52,7 +52,7 @@ mkdir nome_do_diretorio
 ```
 com o diretório criado, crie o arquivo apenas utilizando o código
 ```bash
-code nome_do_arquivo.md
+code Readme.md
 ```
 * Nesse exemplo estamos utilizando um arquivo .md mas você poderá utilizar qualquer tipo de arquivo que desejar. 
 * Dá pra fazer manualmente também mas aí vai de você preferir.
@@ -63,7 +63,7 @@ Salve o arquivo com ctrl + s
 
 Para dar início a um Git, não há segredo. apenas acesse o diretório do arquivo pelo terminal do editor após salvar o arquivo criado (e se o terminal não abrir com o diretório aberto) com 
 ```bash 
-cd nome_da_pasta
+cd nome_do_diretorio
 ```
 e logo após apertar o enter, digite o seguinte código:
 ```bash
@@ -74,19 +74,19 @@ Dê enter e assim o diretório em que estão seus arquivos terá um git iniciado
 # Como funciona o Git?
 O Git possui 4 camadas.
 
->A primeira é chamada de <font color=red>untracked</font> 
+> A primeira é chamada de untracked
 
-Nessa camada não há arquivo, mesmo que você tenha criado um arquivo, enquanto não adicioná-lo ao git, ele não vai existir dentro do Git.
+Nessa camada não há arquivo. Mesmo que você tenha criado um arquivo, enquanto não adicioná-lo ao git, ele não vai existir dentro do Git.
 
-> A segunda camada é chamada de <font color=orange>unmodified</font>
+> A segunda camada é chamada de unmodified
 
 Nesse momento o arquivo está dentro do Git já, porem ele ainda não foi modificado. Nessa etapa, você deve editar o arquivo. Logo ele estará disponível na próxima camada.
 
-> A terceira camada é chamada de <font color=yellow>modified</font>
+> A terceira camada é chamada de modified
 
 Nesse momento o arquivo está modificado, porém ainda não está salvo, assim que você o salvar utilizando o atalho crtl + s, ele irá para a próxima camada.
 
-> A última camada se chama <font color=green>staged</font>
+> A última camada se chama staged
 
 Nesse momento, só restará uma ação a ser feita, que é utilizar o comando para entregar o arquivo, ou seja, atualizar sua versão.
 
@@ -98,14 +98,14 @@ Após você ter criado e salvo o arquivo, poderá adicioná-lo ao Git usando o s
 ```bash
 git add Readme.md
 ```
-* Repare que novamente utilizei um arrquivo qualquer, mas você pode adicionar o que quiser, não apenas um .md
+* Repare que novamente utilizei um arquivo qualquer, mas você pode adicionar o que quiser, não apenas um .md
 
-depois disso, basta atualiza-lo sempre que precisar com o comando 
+depois disso, basta atualizá-lo sempre que precisar com o comando 
 ```bash
 git commit -m "Mensagem explicando as mudanças"
 ```
-* Para adicionar todos os arquivos de uma só vez, utilizar <font color=blue>-am</font> ao invés de apenas -m
-* O comando <font color=blue>-m</font> identifica uma mensagem a deixar no sistema, como boa prática, a mensagem a ser deixada deve explicar a mudança feita no arquivo.
-* O comando <font color=blue>-a</font> adiciona todos os arquivos a serem entregados.
+* Para adicionar todos os arquivos de uma só vez, utilizar -am ao invés de apenas -m
+* O comando -m identifica uma mensagem a deixar no sistema, como boa prática, a mensagem a ser deixada deve explicar a mudança feita no arquivo.
+* O comando -a adiciona todos os arquivos a serem entregados.
 
 > logo mais atualizarei com mais informações sobre o Git e com as informações ainda não dadas sobre o Github.
