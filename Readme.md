@@ -169,13 +169,46 @@ Há ainda uma forma de vizualizar somente o nome do arquivo que foi modificado. 
 ```bash
 git diff --name-only
 ```
+# Como resetar algo no Git?
 
+Há inúmeras maneiras de se fazer isso. Irei demonstar a seguir cada uma delas.
 
+## limpando arquivo após modificá-lo
+Assim que você modifica e salva um arquivo, antes de adiciona-lo ao Git, você tem como traze-lo de folta ao seu estado unmodified. Poder;a transformá-lo de volta ao estado em que estava, apagando todas as modificações anteriores. Utilize o seguinte comando para isso:
+```bash
+git checkout Readme.md
+```
+* Lembrando, a partir de checkout, você deve colocar o nome do arquivo que pretende trazer de volta ao último unmodified feito.
+* Para vizualizar a modificação, antes do checkout, basta usar o código git diff
+## Remover do staged
+Para remover do staged o arquivo no local em que se encontra, utilizar o seguinte comando:
+```bash
+git reset HEAD Readme.md
+```
+* O HEAD removerá o arquivo no local que você está no staged, antes de comitar ele.
+* Ele levará o arquivo para o estado modified (para remove-lo de lá é só usar o código anterior)
+## Remover após o commit
+Para retornar um commit para qualquer estado, existem 3 códigos que fazem isso de formas diferentes.
 
+Primeiro você deve escolher a rash do commit anterior ao que você deseja retornar, para que ele volte ao estado estabelecido pelo comando.
 
+### Antes de comitar
 
-
-
-
-
-> logo mais atualizarei com mais informações sobre o Git e com as informações ainda não dadas sobre o Github.
+Para voltar o arquivo desejado para antes mesmo de ser comitado, o seguinte comando deve ser inserido
+```bash
+git reset --soft 716c30d6d78985245da621850bbb440be9f0e507
+```
+* A estrutura é essa e a rash a ser utilizada deverá ser uma anterior a qual você deseja modificar.
+### Antes de adicionar
+Caso você queira levá-lo ao estado de modified, antes de adicioná-lo, utilizaremos o seguinte comando:
+```bash
+git reset --mixed 716c30d6d78985245da621850bbb440be9f0e507
+```
+* Caso queira vizualizar as mudanças feitas, apenas utilize o comando git diff.
+### Matar o commit
+Esse comando deve ser utilizado com cuidado, pois ele altera o histórico do commit, e com isso, se ele estiver sendo utilizado em um repositório remoto, poderá haver problemas para atualiza-lo. Portanto, só é bom utilizar ele se ele não estiver em um repositorio remoto ou não precisar mais ser atualizado no repositório remoto. Tomar muito cuidado! 
+É um código importante, pode ser usado com o seguinte código.
+```bash
+git reset --hard 716c30d6d78985245da621850bbb440be9f0e507
+```
+* Lembrando mais uma vez que, o rash a utilizar será o anterior ao commit que se deseja atualizar, ou nesse caso, remover.
